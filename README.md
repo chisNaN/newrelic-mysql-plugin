@@ -57,7 +57,7 @@ should be configured like this:
     }
   ]
 }
-``
+```
 
 ###Enable and start the service
 
