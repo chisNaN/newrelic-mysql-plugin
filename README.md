@@ -1,12 +1,12 @@
-#Install MySQL New Relic plugin agent
+# Install MySQL New Relic plugin agent
 
 >Process for Ubuntu 16.04 AWS ec2 instance
 
-###Install JDK
+### Install JDK
 
 `sudo apt install default-jdk`
 
-###Install the newrelic agent
+### Install the newrelic agent
 
 ```
 echo "license_key: YOUR_LICENSE_KEY" | sudo tee -a /etc/newrelic-infra.yml
@@ -20,7 +20,7 @@ sudo apt-get update
 sudo apt-get install newrelic-infra -y
 ```
 
-###Create the newrelic mysql user ("password" as password)
+### Create the newrelic mysql user ("password" as password)
 
 (Install a mysql client if not done)
 
@@ -33,11 +33,11 @@ CREATE USER newrelic@% IDENTIFIED BY PASSWORD '*2470C0C06DEE42FD1618BB99005ADCA2
 
 GRANT PROCESS,REPLICATION CLIENT ON *.* TO newrelic@%;
 ```
-###Install the NPI tool
+### Install the NPI tool
 
 `LICENSE_KEY=YOUR_KEY_HERE bash -c "$(curl https://download.newrelic.com/npi/release/install-npi-linux-debian-x64.sh)"`
 
-###Install the MySQL plugin
+### Install the MySQL plugin
 
  `./npi install com.newrelic.plugins.mysql.instance`
 
@@ -59,7 +59,7 @@ should be configured like this:
 }
 ```
 
-###Enable and start the service
+### Enable and start the service
 
 Enable the service: `sudo ./npi add-service com.newrelic.plugins.mysql.instance`
 
